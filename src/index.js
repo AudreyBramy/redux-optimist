@@ -13,7 +13,7 @@ module.exports.REVERT = REVERT;
 function optimist(fn) {
   function beginReducer(state, action) {
     let {optimist, innerState} = separateState(state);
-    optimist = optimist.concat([{beforeState: innerState, action}]);
+    optimist = optimist.concat([{beforeState: Object.assign({}, innerState), action}]);
     innerState = fn(innerState, action);
     validateState(innerState, action);
     return {optimist, ...innerState};
