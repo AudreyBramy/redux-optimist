@@ -111,7 +111,7 @@ function optimist(fn) {
       }
     }
 
-    let {optimist, innerState} = separateState(state);
+    let {optimist, innerState} = separateState(stateCopy);
     if (state && !optimist.length) {
       let nextState = fn(innerState, action);
       if (nextState === innerState) {
