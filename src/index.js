@@ -99,7 +99,7 @@ function optimist(fn) {
     return {optimist, ...innerState};
   }
   return function (state, action) {
-    const stateCopy = Object.assign({}, state);
+    const stateCopy = JSON.parse(JSON.stringify(state))
     if (action.optimist) {
       switch (action.optimist.type) {
         case BEGIN:
